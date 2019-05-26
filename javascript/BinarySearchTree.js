@@ -89,6 +89,7 @@ class BinarySearchTree {
 			return this.findMinNode(node.left);
 		}
 	}
+
 	inorder(root) {
 		if (root === null) {
 			return;
