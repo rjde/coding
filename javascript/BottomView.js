@@ -23,7 +23,6 @@ root.left.right = new Node(3);
 root.left.right.left = new Node(10);
 root.left.right.right = new Node(14);
 
-// Left view function without recursion
 function printBottomView(root) {
   let bottomView = {};
   let queue = [];
