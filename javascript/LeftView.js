@@ -4,15 +4,24 @@ function Node(data) {
   this.right = null;
 }
 
+//  Binary tree View
+//           4 
+//         /  \ 
+//        5   2 
+//           / \ 
+//          3  1 
+//        /  \
+//       6    7
+//   
+//  Left view -> 4, 5, 3, 6
 
-function printInorder(node) {
-  if (node === null) {
-    return;
-  }
-  printInorder(node.left);
-  console.log(node.data);
-  printInorder(node.right);
-}
+let root = new Node(4);
+root.left = new Node(5);
+root.right = new Node(2);
+root.right.left = new Node(3);
+root.right.right = new Node(1);
+root.right.left.left = new Node(6);
+root.right.left.right = new Node(7);
 
 // Left view function without recursion
 function printLeftView(root) {
@@ -38,7 +47,6 @@ function printLeftView(root) {
   return leftView;
 }
 
-
 // Print left view using recursion
 let global_max_level = 0;
 let global_result = [];
@@ -61,26 +69,6 @@ function printLeftView_recur(root, level) {
   printLeftView_recur(root.right, level + 1);
 }
 
-//  Binary tree View
-//           4 
-//         /  \ 
-//        5   2 
-//           / \ 
-//          3  1 
-//        /  \
-//       6    7
-//   
-//  Left view -> 4, 5, 3, 6
-
-let root = new Node(4);
-root.left = new Node(5);
-root.right = new Node(2);
-root.right.left = new Node(3);
-root.right.right = new Node(1);
-root.right.left.left = new Node(6);
-root.right.left.right = new Node(7);
-
-printInorder(root);
 console.log(printLeftView(root));
 printLeftView_recur(root);
 console.log(global_result);
