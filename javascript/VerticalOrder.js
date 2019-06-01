@@ -64,9 +64,13 @@ function printBottomView(root) {
   }
 
   let result = Object.keys(bottomView).sort((a, b) => a - b);
-  console.log(result);
-  return [].concat.apply([], result.map(key => bottomView[key]));
+  // return [].concat.apply([], result.map(key => bottomView[key]));
+  return flatten(result.map(key => bottomView[key]));
 }
+
+const flatten = (arr) => arr.reduce((flat, next) =>
+  flat.concat(Array.isArray(next) ? flatten(next) : next), []
+);
 
 console.log(printBottomView(root));
 console.log(printBottomView(root2));
